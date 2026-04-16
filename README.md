@@ -92,3 +92,13 @@ Time-aware train/test split using `TimeSeriesSplit` to prevent data leakage.
 3. Weekly demand lag (168h)
 4. Hour-of-day encodings
 5. Zone indicators
+
+---
+
+## Key Findings
+
+- **Demand is momentum-driven** — recent demand lags dominate feature importance; weather and events act as secondary modifiers, not primary drivers
+- **Strong time structure** — demand peaks 5–7 PM daily, weekdays consistently outperform weekends, patterns stable across 2019–2024
+- **Zone heterogeneity is significant** — Upper East Side South shows highest average demand; WTC is concentrated in business hours; JFK generates highest revenue per hour
+- **Weather & events fine-tune the baseline** — rain increases demand in residential zones; holidays suppress commuter zone activity; major events cause localized spikes in Times Square
+- **Nonlinearity matters** — XGBoost (R²=0.932) significantly outperforms Linear Regression (R²=0.812), confirming strong nonlinear interactions between features
